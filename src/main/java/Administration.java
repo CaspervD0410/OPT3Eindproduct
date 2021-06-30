@@ -12,10 +12,9 @@ public class Administration extends Employee{
     }
 
     @Override
-    protected void executeChoice(String choice) {
+    protected void executeExtra(String choice) {
         Scanner in = new Scanner(System.in);
         switch (choice) {
-            case "1" : writeHours(); break;
             case "2" : printOptionsHour(); break;
             case "3" : {
                 System.out.println("Voer de klantnaam in: ");
@@ -23,8 +22,6 @@ public class Administration extends Employee{
                 System.out.println("Klant is aangemaakt.");
                 break;
             }
-            case "0" : Login.getInstance().logOut(); break;
-            case "e" : System.exit(9999);
             default : System.out.println("Foutieve waarde ingevoerd. Probeer opnieuw.");
         }
 

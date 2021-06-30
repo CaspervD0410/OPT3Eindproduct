@@ -59,7 +59,17 @@ abstract class Employee {
 
     protected abstract void extraOptions();
 
-    protected abstract void executeChoice(String choice);
+    protected  void executeChoice(String choice) {
+        switch (choice) {
+            case "1" : writeHours(); break;
+            case "0" : Login.getInstance().logOut(); break;
+            case "e" : System.exit(9999);
+            default : executeExtra(choice);
+        }
+
+    }
+
+    protected abstract void executeExtra(String choice);
 
     protected void printHours() {
        for (WorkHour wh : workHours) {

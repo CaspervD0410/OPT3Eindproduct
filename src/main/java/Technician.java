@@ -8,13 +8,11 @@ public class Technician extends Employee {
     }
 
     @Override
-    protected void executeChoice(String choice) {
-        switch (choice) {
-            case "1" : writeHours(); break;
-            case "2" : printHours(); break;
-            case "0" : Login.getInstance().logOut(); break;
-            case "e" : System.exit(9999);
-            default : System.out.println("Foutieve waarde ingevoerd. Probeer opnieuw.");
+    protected void executeExtra(String choice) {
+        if ("2".equals(choice)) {
+            printHours();
+        } else {
+            System.out.println("Foutieve waarde ingevoerd. Probeer opnieuw.");
         }
 
     }

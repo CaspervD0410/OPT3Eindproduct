@@ -12,19 +12,19 @@ public class Supervisor extends Employee {
     }
 
     @Override
-    protected void executeChoice(String choice) {
+    protected void executeExtra(String choice) {
         Scanner in = new Scanner(System.in);
         switch (choice) {
-            case "1" : writeHours(); break;
             case "2" : {
                 System.out.println("Voer de naam van de te bekijken werknemer in");
                 String name = in.nextLine();
                 for (Employee emp : employees) {
                     if (emp.getName().equalsIgnoreCase(name)) {
                         emp.printHours();
+                        break;
                     }
                 }
-                break;
+                System.out.println("Werknemer kan niet gevonden worden");
             }
             case "3" : {
                 System.out.println("Wat is de functie van de nieuwe werknemer? Kies uit:\n1) Technicus\n2) Administratie\n3) Leidinggevende");
@@ -33,9 +33,7 @@ public class Supervisor extends Employee {
                 System.out.println("Nieuwe werknemer is aangemaakt.");
                 break;
             }
-            case "0" : Login.getInstance().logOut(); break;
-            case "e" : System.exit(9999);
-            default : System.out.println("Foutieve waarde ingevoerd."); break;
+            default : System.out.println("Foutieve waarde ingevoerd. Probeer opnieuw.");
         }
     }
 
